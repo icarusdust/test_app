@@ -19,7 +19,7 @@ workflows:
             - name: Install npm dependencies
               script: |
                 npm install
-                npm install -g expo-cli
+                npx install -g expo-cli
                 npx expo eject
             - name: Set Android SDK location
               script: |
@@ -40,9 +40,9 @@ workflows:
                 # export NEW_BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks=alpha) + 1))             
                 export NEW_BUILD_NUMBER=$(($(firebase-app-distribution get-latest-build-number --package-name "$PACKAGE_NAME") + 1))
                 cd android && ./gradlew assembleRelease
-            - name: Expo OTA update
-              script: |
-                  npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
-                  npx expo-cli publish --non-interactive --max-workers 1 --release-channel $EXPO_RELEASE_CHANNEL
+            # - name: Expo OTA update
+            #   script: |
+            #       npx expo-cli login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+            #       npx expo-cli publish --non-interactive --max-workers 1 --release-channel $EXPO_RELEASE_CHANNEL
         artifacts:
             - android/app/build/outputs/**/*.apk
