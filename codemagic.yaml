@@ -18,9 +18,9 @@ workflows:
         scripts:
             - name: Install npm dependencies
               script: |
+                npm install
                 npm install -g expo-cli
                 npx expo eject
-                npm install
             - name: Set Android SDK location
               script: |
                 echo "sdk.dir=$ANDROID_SDK_ROOT" > "$FCI_BUILD_DIR/android/local.properties"
