@@ -19,7 +19,7 @@ workflows:
             - name: Install npm dependencies
               script: |
                 npm install
-                npx install -g expo-cli
+                npm install -g expo-cli
                 npx expo eject
             - name: Set Android SDK location
               script: |
