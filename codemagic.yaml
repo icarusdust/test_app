@@ -24,8 +24,8 @@ workflows:
             - name: Pod deintegrate
               script: |
                 cd ios
+                gem install cocoapods     
                 pod init
-                pod deintegrate
                 pod install
             - name: Set Android SDK location
               script: |
