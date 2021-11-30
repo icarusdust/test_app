@@ -22,12 +22,12 @@ workflows:
                 npm install
                 npm install -g expo-cli
                 npx expo eject
-            - name: Pod deintegrate
-              script: |
-                cd ios
-                gem install cocoapods     
-                pod init
-                pod install
+#             - name: Pod deintegrate
+#               script: |
+#                 cd ios
+#                 gem install cocoapods     
+#                 pod init
+#                 pod install
             - name: Set Android SDK location
               script: |
                 echo "sdk.dir=$ANDROID_SDK_ROOT" > "$FCI_BUILD_DIR/android/local.properties"
